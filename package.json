@@ -1,0 +1,13 @@
+{
+  "name": "pagina-de-links",
+  "version": "1.0.0",
+  "description": "Página de links do Paulo Dias | Êxito Contabilidade",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
+}
