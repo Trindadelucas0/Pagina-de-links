@@ -235,62 +235,6 @@ body::after {
   font-size: 0.9rem;
 }
 
-/* ===== Theme Toggle ===== */
-.theme-toggle {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-
-.toggle-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--blue-subtle);
-  border: 1px solid var(--blue-border);
-  border-radius: 30px;
-  padding: 8px 14px;
-  cursor: pointer;
-  transition: var(--transition);
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-}
-
-.toggle-btn:hover {
-  background: rgba(30, 58, 95, 0.3);
-  border-color: var(--blue-light);
-}
-
-.toggle-btn .toggle-track {
-  width: 40px;
-  height: 22px;
-  background: var(--blue-dark);
-  border-radius: 11px;
-  position: relative;
-  transition: var(--transition);
-}
-
-.toggle-btn .toggle-thumb {
-  width: 18px;
-  height: 18px;
-  background: var(--blue-tie);
-  border-radius: 50%;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  transition: var(--transition);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
-
-[data-theme="light"] .toggle-btn .toggle-thumb {
-  left: 20px;
-  background: var(--blue-primary);
-}
-
-[data-theme="light"] .toggle-btn .toggle-track {
-  background: var(--blue-accent);
-}
-
 /* ===== Links Section ===== */
 .links {
   display: flex;
