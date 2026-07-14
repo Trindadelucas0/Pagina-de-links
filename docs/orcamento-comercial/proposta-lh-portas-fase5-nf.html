@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta | LH Portas — Fase 5 — Emissao de NF-e e NFS-e</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+@keyframes shimmer{0%,100%{background-position:0%}50%{background-position:100%}}
+.text-shimmer{background:linear-gradient(90deg,#f59e0b,#fbbf24,#fff,#fbbf24,#f59e0b);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s linear infinite}
+.glass{background:rgba(18,18,26,.65);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08)}
+.reveal{opacity:0;transform:translateY(24px);transition:all .8s cubic-bezier(.16,1,.3,1)}.reveal.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{transition:none}.text-shimmer{animation:none}}
+</style>
+</head>
+<body class="bg-[#0a0a0f] text-white font-sans antialiased" style="font-family:Outfit,sans-serif">
+<div class="fixed inset-0 -z-10 bg-gradient-to-b from-amber-500/10 via-transparent to-[#0a0a0f]"></div>
+<nav class="fixed top-0 inset-x-0 z-40 glass border-b border-white/5 px-4 py-3 flex justify-between items-center">
+<span class="font-bold" style="font-family:Syne">LH Portas <span class="text-amber-400 text-sm font-normal">Fase 5/5</span></span>
+<a href="proposta-lh-portas-pagina-links.html" class="text-xs text-zinc-500 hover:text-amber-400">Fase 1</a>
+</nav>
+<header class="pt-28 pb-16 px-4 text-center max-w-4xl mx-auto reveal">
+<p class="text-xs uppercase tracking-[.2em] text-amber-400/80 mb-4">Proposta comercial · Valida 15 dias</p>
+<h1 class="text-4xl md:text-6xl font-extrabold mb-4" style="font-family:Syne">Emissao de NF-e e NFS-e</h1>
+<p class="text-zinc-400 text-lg mb-8">Emissao fiscal integrada ao financeiro. NFS-e servicos + NF-e produtos. 1 CNPJ.</p>
+<div class="inline-block glass rounded-2xl px-10 py-6">
+<p class="text-4xl md:text-5xl font-bold text-shimmer">R$ 18.000</p>
+<p class="text-xs text-zinc-500 mt-2">180h · 50-70 dias</p>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-4 pb-20 space-y-12">
+<section class="reveal glass rounded-2xl p-6 md:p-8">
+<h2 class="text-xl font-bold text-amber-400 mb-4">Escopo principal</h2>
+<ul class="space-y-2 text-zinc-300"><li class="flex gap-2"><span class="text-amber-400">✓</span>NFS-e + NF-e</li><li class="flex gap-2"><span class="text-amber-400">✓</span>Historico notas</li><li class="flex gap-2"><span class="text-amber-400">✓</span>Integracao financeiro</li><li class="flex gap-2"><span class="text-amber-400">✓</span>Alerta certificado</li></ul>
+</section>
+<section class="reveal glass rounded-2xl p-6 md:p-8">
+<h2 class="text-xl font-bold text-amber-400 mb-4">Padrao de entrega</h2>
+<div class="grid sm:grid-cols-3 gap-4 text-sm">
+<div class="p-4 rounded-xl bg-white/5">Animacoes suaves</div>
+<div class="p-4 rounded-xl bg-white/5">Layout premium</div>
+<div class="p-4 rounded-xl bg-white/5">Mobile perfeito</div>
+</div>
+</section>
+<section class="reveal glass rounded-2xl p-6 md:p-8">
+<h2 class="text-xl font-bold text-amber-400 mb-4">Condicoes</h2>
+<p class="text-zinc-400 text-sm">50% aprovacao + 50% entrega · 1 rodada ajustes · 30 dias garantia · Escopo fechado nesta fase · Demais modulos em propostas separadas.</p>
+<p class="text-zinc-500 text-xs mt-4">Documento completo: proposta-lh-portas-fase5-nf.md</p>
+</section>
+</main>
+<script>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}}),{threshold:.1}).observe&&document.querySelectorAll('.reveal').forEach(el=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1}).observe(el));</script>
+</body></html>

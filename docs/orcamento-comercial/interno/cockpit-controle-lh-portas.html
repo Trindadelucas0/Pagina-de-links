@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cockpit interno | LH Portas</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{background:#0c0c0e}.view{display:none}.view.active{display:block}.nav-btn.active{background:rgba(245,158,11,.15);color:#fbbf24}textarea,select,input{background:#1a1a20;border:1px solid #252530;color:#e4e4e7;border-radius:8px}.wm{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem;font-weight:700;color:rgba(255,0,0,.04);transform:rotate(-25deg);pointer-events:none}</style>
+</head>
+<body class="text-zinc-300 font-sans">
+<div class="wm">USO INTERNO</div>
+<div class="flex min-h-screen relative z-10">
+<aside class="w-56 border-r border-zinc-800 bg-zinc-900 p-4 fixed h-full">
+<p class="text-xs text-red-400 uppercase tracking-widest">Interno</p>
+<h1 class="text-white font-bold text-lg">LH Portas</h1>
+<p class="text-xs text-zinc-500 mb-4">Cockpit de controle</p>
+<button data-view="overview" class="nav-btn active block w-full text-left px-3 py-2 rounded text-sm mb-1">Overview</button>
+<button data-view="reuniao" class="nav-btn block w-full text-left px-3 py-2 rounded text-sm mb-1">Modo reuniao</button>
+<button data-view="pipeline" class="nav-btn block w-full text-left px-3 py-2 rounded text-sm mb-1">Pipeline</button>
+<button data-view="notas" class="nav-btn block w-full text-left px-3 py-2 rounded text-sm mb-1">Notas</button>
+<button data-view="painel" class="nav-btn block w-full text-left px-3 py-2 rounded text-sm mb-1">Painel futuro</button>
+<button data-view="pos" class="nav-btn block w-full text-left px-3 py-2 rounded text-sm mb-1">Pos-reuniao</button>
+<button data-view="links" class="nav-btn block w-full text-left px-3 py-2 rounded text-sm mb-1">Arquivos</button>
+</aside>
+<main class="flex-1 ml-56 p-6 max-w-6xl">
+<section id="view-overview" class="view active"><h2 class="text-2xl font-bold text-white mb-6">Overview</h2><div id="cards" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6"></div><div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5"><div class="flex justify-between text-sm mb-2"><span>Progresso ecossistema</span><span id="pct" class="text-amber-400 font-mono">0%</span></div><div class="h-2 bg-zinc-800 rounded-full"><div id="bar" class="h-full bg-amber-500" style="width:0%"></div></div></div></section>
+<section id="view-reuniao" class="view"><div class="flex justify-between mb-6"><h2 class="text-2xl font-bold text-white">Modo reuniao</h2><span id="timer" class="font-mono text-2xl text-amber-400">60:00</span><button id="tbtn" class="px-4 py-2 bg-amber-500/20 text-amber-400 rounded text-sm">Timer</button></div><div id="steps" class="space-y-3"></div></section>
+<section id="view-pipeline" class="view"><h2 class="text-2xl font-bold text-white mb-6">Pipeline R$ 37k-52k</h2><table class="w-full text-sm border border-zinc-800 rounded-xl overflow-hidden"><thead class="bg-zinc-900 text-zinc-500 text-xs"><tr><th class="p-3 text-left">Modulo</th><th class="p-3 text-right">Valor</th><th class="p-3 text-left">Status</th></tr></thead><tbody id="pipe"></tbody></table></section>
+<section id="view-notas" class="view"><h2 class="text-2xl font-bold text-white mb-6">Notas</h2><textarea id="ng" rows="4" class="w-full p-3 text-sm mb-4" placeholder="Nota geral do cliente"></textarea><div id="nm" class="grid md:grid-cols-2 gap-4"></div><button id="save" class="mt-4 px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded text-sm">Salvar no navegador</button></section>
+<section id="view-painel" class="view"><h2 class="text-2xl font-bold text-white mb-2">Painel futuro do cliente</h2><p class="text-sm text-zinc-500 mb-6">Ver arquitetura-painel-ia.md para detalhes tecnicos</p><div class="grid md:grid-cols-3 gap-4"><div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4"><p class="text-xs text-zinc-500">Mini site - acessos 30d</p><p class="text-2xl font-bold text-white">1.247</p><p class="text-xs text-amber-400 mt-2">QR loja 28% | Instagram 18%</p></div><div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4"><p class="text-xs text-zinc-500">CRM - sem contato 60d</p><p class="text-2xl font-bold text-red-400">8 clientes</p><p class="text-xs text-amber-400 mt-2">IA: sugerir follow-up</p></div><div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4"><p class="text-xs text-zinc-500">Financeiro - mes</p><p class="text-2xl font-bold text-emerald-400">R$ 12.400</p><p class="text-xs text-red-400 mt-2">Material +18% vs media</p></div><div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4"><p class="text-xs text-zinc-500">Leads landing</p><p class="text-2xl font-bold text-white">34</p></div><div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4"><p class="text-xs text-zinc-500">NF emitidas</p><p class="text-2xl font-bold text-white">56</p></div><div class="bg-zinc-900 border border-amber-500/30 rounded-xl p-4"><p class="text-xs text-amber-400">IA resumo semanal</p><p class="text-sm text-zinc-400 mt-2">Acesso subiu 12%. Priorize 8 clientes CRM. Gasto material acima da media.</p></div></div></section>
+<section id="view-pos" class="view"><h2 class="text-2xl font-bold text-white mb-4">Pos-reuniao</h2><ul class="text-sm space-y-2 mb-6 text-zinc-400"><li class="text-emerald-400">Enviar: proposta Fase 1 mini site (HTML/PDF)</li><li class="text-red-400">Nao enviar: este cockpit, valores dos 5 modulos, pipeline total</li></ul><label class="text-xs text-zinc-500">Proximo contato</label><input type="date" id="pd" class="block px-3 py-2 text-sm mb-3 mt-1"><input type="text" id="pa" class="w-full px-3 py-2 text-sm" placeholder="Proxima acao ex: cobrar logo e textos"></section>
+<section id="view-links" class="view"><h2 class="text-2xl font-bold text-white mb-6">Arquivos (MDs = estudo profundo)</h2><div class="grid sm:grid-cols-2 gap-3 text-sm"><a href="modulos/01-mini-site-presenca-digital.md" class="p-4 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-amber-500/40">01 Mini site presenca digital</a><a href="modulos/02-landing-page.md" class="p-4 rounded-xl bg-zinc-900 border border-zinc-800">02 Landing page</a><a href="modulos/03-crm-pos-venda.md" class="p-4 rounded-xl bg-zinc-900 border border-zinc-800">03 CRM pos-venda</a><a href="modulos/04-financeiro.md" class="p-4 rounded-xl bg-zinc-900 border border-zinc-800">04 Financeiro</a><a href="modulos/05-emissao-nf.md" class="p-4 rounded-xl bg-zinc-900 border border-zinc-800">05 Emissao NF</a><a href="arquitetura-painel-ia.md" class="p-4 rounded-xl bg-zinc-900 border border-zinc-800">Arquitetura painel + IA</a>
+<a href="../proposta-lh-portas-fase2-landing.html" class="p-4 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-amber-500/40">Proposta Fase 2 Landing</a>
+<a href="../proposta-lh-portas-fase3-financeiro.html" class="p-4 rounded-xl bg-zinc-900 border border-zinc-800">Proposta Fase 3 Financeiro</a>
+<a href="../proposta-lh-portas-fase4-crm.html" class="p-4 rounded-xl bg-zinc-900 border border-zinc-800">Proposta Fase 4 CRM</a>
+<a href="../proposta-lh-portas-fase5-nf.html" class="p-4 rounded-xl bg-zinc-900 border border-zinc-800">Proposta Fase 5 NF</a>
+<a href="../proposta-lh-portas-pagina-links.html" class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30">Proposta cliente</a><a href="../../../index.html" class="p-4 rounded-xl bg-zinc-900 border border-zinc-800">Exemplo index.html</a></div></section>
+</main></div>
+<script>
+const M=[{id:"minisite",n:"Mini site presenca digital",p:1,v:"R$ 2.000"},{id:"landing",n:"Landing page",p:2,v:"R$ 3.000-4.500"},{id:"fin",n:"Financeiro",p:3,v:"R$ 7.000-10.000"},{id:"crm",n:"CRM pos-venda",p:4,v:"R$ 10.000-14.000"},{id:"nf",n:"Emissao NF",p:5,v:"R$ 15.000-22.000"}];
+const S=["Nao abordado","Briefing parcial","Cotado","Aprovado","Em dev","Entregue"];
+const W={"Nao abordado":0,"Briefing parcial":1,"Cotado":2,"Aprovado":3,"Em dev":4,"Entregue":5};
+const ST=[["Validar dor","Planilhas, zero presenca digital, pos-venda importa"],["Mostrar exemplo","index.html = padrao. LH tera mini site profissional"],["Explicar 5 fases","Separados. Comeca presenca digital"],["Perguntas CRM/NF","Coletar briefing sem preco fechado"],["Propor Fase 1","Mini site R$ 2.000 + R$ 150/mes"],["Visao painel","Tudo conectado, origem lead, IA depois"],["Proximos passos","Aprovar Fase 1, enviar logo e textos"]];
+const K="lh-portas-cockpit-v1";
+let s=JSON.parse(localStorage.getItem(K)||"{}");
+s.status=s.status||{};s.notas=s.notas||{};s.reuniao=s.reuniao||{};s.proximo=s.proximo||{};
+const sv=()=>localStorage.setItem(K,JSON.stringify(s));
+function R(){
+document.getElementById("cards").innerHTML=M.map(m=>{const st=s.status[m.id]||"Nao abordado";return `<div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4"><span class="text-xs text-amber-400">Fase ${m.p}</span><select data-m="${m.id}" class="float-right text-xs px-2 py-1 rounded">${S.map(x=>`<option${x===st?" selected":""}>${x}</option>`).join("")}</select><h3 class="font-semibold text-white text-sm mt-2">${m.n}</h3><p class="text-xs text-zinc-500">${m.v}</p></div>`}).join("");
+document.getElementById("pipe").innerHTML=M.map(m=>`<tr class="border-t border-zinc-800"><td class="p-3">${m.n}</td><td class="p-3 text-right font-mono">${m.v}</td><td class="p-3">${s.status[m.id]||"Nao abordado"}</td></tr>`).join("");
+const pc=Math.round(M.reduce((a,m)=>a+(W[s.status[m.id]]||0),0)/(M.length*5)*100);
+document.getElementById("bar").style.width=pc+"%";document.getElementById("pct").textContent=pc+"%";
+document.getElementById("steps").innerHTML=ST.map((x,i)=>`<label class="flex gap-3 p-4 rounded-xl bg-zinc-900 border border-zinc-800"><input type="checkbox" data-s="${i}"${s.reuniao[i]?" checked":""}><div><b class="text-sm text-white">${x[0]}</b><p class="text-xs text-amber-400/90">${x[1]}</p></div></label>`).join("");
+document.getElementById("nm").innerHTML=M.map(m=>`<div><label class="text-xs text-zinc-500">${m.n}</label><textarea data-n="${m.id}" rows="3" class="w-full mt-1 p-2 text-sm">${s.notas[m.id]||""}</textarea></div>`).join("");
+document.getElementById("ng").value=s.notas.geral||"";document.getElementById("pd").value=s.proximo.data||"";document.getElementById("pa").value=s.proximo.acao||"";
+document.querySelectorAll("select[data-m]").forEach(el=>el.onchange=e=>{s.status[e.target.dataset.m]=e.target.value;sv();R()});
+document.querySelectorAll("[data-s]").forEach(el=>el.onchange=e=>{s.reuniao[e.target.dataset.s]=e.target.checked;sv()});
+}
+document.querySelectorAll(".nav-btn").forEach(b=>b.onclick=()=>{document.querySelectorAll(".nav-btn").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.getElementById("view-"+b.dataset.view).classList.add("active")});
+document.getElementById("save").onclick=()=>{s.notas.geral=document.getElementById("ng").value;document.querySelectorAll("[data-n]").forEach(el=>s.notas[el.dataset.n]=el.value);s.proximo.data=document.getElementById("pd").value;s.proximo.acao=document.getElementById("pa").value;sv();alert("Salvo no navegador.")};
+let t=3600,iv=null;document.getElementById("tbtn").onclick=function(){if(iv){clearInterval(iv);iv=null;this.textContent="Timer";return}this.textContent="Pausar";iv=setInterval(()=>{if(--t<0)clearInterval(iv);document.getElementById("timer").textContent=String(~~(t/60)).padStart(2,"0")+":"+String(t%60).padStart(2,"0")},1000)};
+R();
+</script>
+</body>
+</html>
